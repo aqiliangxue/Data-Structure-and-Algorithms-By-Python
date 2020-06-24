@@ -1,6 +1,7 @@
 from basis.priorityQueue import PriorityQueue
 from Ch11_12.Py703 import  Graph
 import sys
+# 最小生成树，是一个贪心算法
 def prim(G,start):
     pq=PriorityQueue()
     for v in G:
@@ -13,6 +14,7 @@ def prim(G,start):
         currentVert=pq.delMin()
         for nextVert in currentVert.getConnections():
             newCost=currentVert.getWeight(nextVert)
+            # nextVert in pq，可以安全添加的边（一端顶点在树中，另一端不在树中）
             if nextVert in pq and newCost <nextVert.getDistance():
                 nextVert.setPred(currentVert)
                 nextVert.setDistance(newCost)
