@@ -1,7 +1,9 @@
 
+# 通过节点链接法实现树
 class BinaryTree:
     def __init__(self,rootObj):
         self.key=rootObj
+        # 成员leftChild&rightChild 保存指向左右子树的引用（也是BinaryTree对象）
         self.leftChild=None
         self.rightChild=None
 
@@ -9,6 +11,7 @@ class BinaryTree:
         if self.leftChild == None:
             self.leftChild=BinaryTree(newNode)
         else:
+            # 需要注意赋值步骤，顺序错了会破坏二叉树
             t=BinaryTree(newNode)
             t.leftChild=self.leftChild
             self.leftChild=t
@@ -32,6 +35,7 @@ class BinaryTree:
 
     def getRootValue(self):
         return self.key
+
     def preOrder(self):
         print(self.key)
         if self.leftChild:
@@ -47,4 +51,4 @@ if __name__=="__main__":
     r.getRightChild().setRootValue("hello")
     r.getLeftChild().insertRight("d")
 
-    print(r)
+    print(r.preOrder())
