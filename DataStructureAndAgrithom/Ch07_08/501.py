@@ -1,3 +1,6 @@
+
+
+# 顺序查找，无序表查找代码
 def sequentualSearch(alist,item):
     pos=0
     found=False
@@ -12,6 +15,7 @@ def sequentualSearch(alist,item):
 # print(sequentualSearch(testList,3))
 # print(sequentualSearch(testList,13))
 
+# 顺序查找：有序表查找，当前面数据项不相等，下一数据项又大于要查找数据，对于有序表来说可以确定数据不存在在要查找的表中
 def OrderedsequentualSearch(alist,item):
     pos=0
     found=False
@@ -20,6 +24,7 @@ def OrderedsequentualSearch(alist,item):
         if alist[pos]==item:
             found=True
         else:
+            # 增加提前退出条件
             if alist[pos]>item:
                 stop=True
             else:
